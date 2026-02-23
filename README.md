@@ -81,6 +81,14 @@ Used for traffic analytics and AQI prediction.
 - Dynamic chart updates every 5 seconds
 
 ---
+## 🎥 Live Demo
+
+Backend API:
+http://127.0.0.1:5001/api/latest
+
+Dashboard Preview:
+(see screenshots below)
+
 ## 📸 Project Screenshots
 
 ### Backend API Response
