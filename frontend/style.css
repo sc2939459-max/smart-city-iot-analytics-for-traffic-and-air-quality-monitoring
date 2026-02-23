@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  padding: 15px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  width: 150px;
+  text-align: center;
+  font-weight: bold;
+}
+
+canvas {
+  max-width: 100%;
+  height: 300px !important;
+  margin-top: 40px;
+}
