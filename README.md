@@ -92,10 +92,5 @@ Used for traffic analytics and AQI prediction.
 ### Deployment Dashboard
 ![Deployment](screenshots/deployment.png)
 
-## 🚀 How to Run the Project
 
-### 1. Clone Repository
-```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
 
