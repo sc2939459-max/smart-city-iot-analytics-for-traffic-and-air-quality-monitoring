@@ -92,5 +92,42 @@ Used for traffic analytics and AQI prediction.
 ### Deployment Dashboard
 ![Deployment](screenshots/deployment.png)
 
+## 🚀 How to Run the Project
 
+### 1. Clone Repository
+```bash
+git clone https://github.com/sc2939459-max/smart-city-i’ot-analytics-for-traffic-and-air-quality-monitoring.git
+cd smart-city-iot-analytics-for-traffic-and-air-quality-monitoring
+```
+
+### 2. Create Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate     # Mac/Linux
+venv\Scripts\activate        # Windows
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r deployment/requirements.txt
+```
+
+### 4. Run Backend API
+```bash
+python deployment/deploy_app.py
+```
+
+API runs at:
+```
+http://127.0.0.1:5001/api/latest
+```
+
+### 5. Run Frontend Dashboard
+Open:
+
+```
+frontend/index.html
+```
+
+(using Live Server or browser)
 
