@@ -1,5 +1,8 @@
 # Smart City IoT Analytics for Traffic and Air Quality Monitoring
+## 🌐 Live Demo
 
+Backend API:
+https://smart-city-iot-analytics-for-traffic-and.onrender.com/api/latest
 ## 📌 Project Overview
 This project presents a Smart City IoT Analytics system designed to monitor and analyze real-time traffic conditions and air quality levels using data analytics and machine learning techniques.
 
@@ -81,13 +84,6 @@ Used for traffic analytics and AQI prediction.
 - Dynamic chart updates every 5 seconds
 
 ---
-## 🎥 Live Demo
-
-Backend API:
-http://127.0.0.1:5001/api/latest
-
-Dashboard Preview:
-(see screenshots below)
 
 ## 📸 Project Screenshots
 
