@@ -1,16 +1,90 @@
-# Smart City IoT Analytics for Real-Time Traffic and Air Quality Monitoring
+# Smart City IoT Analytics for Traffic and Air Quality Monitoring
 
-## Project Overview
-This project uses data analytics and machine learning to analyze traffic and air quality data and generate real-time risk predictions.
+## 📌 Project Overview
+This project presents a Smart City IoT Analytics system designed to monitor and analyze real-time traffic conditions and air quality levels using data analytics and machine learning techniques.
 
-## Folder Structure
-- training/: Model training (offline)
-- backend/: Flask API for deployment
-- frontend/: Streamlit dashboard and UI
-- data/: Dataset
-- notebook/: EDA and experiments
+The system collects traffic and environmental parameters, processes them through a backend API, and visualizes live analytics on an interactive dashboard.
 
-## How to Run
-1. Train model: `python training/train_model.py`
-2. Start backend: `python backend/backend_app.py`
-3. Start frontend: `streamlit run frontend/frontend_dashboard.py`
+---
+
+## 🎯 Objectives
+- Monitor real-time traffic density and vehicle speed
+- Analyze congestion levels dynamically
+- Predict Air Quality Index (AQI)
+- Provide visual insights using an interactive dashboard
+- Demonstrate integration of IoT, Machine Learning, and Web Technologies
+
+---
+
+## 🏗️ System Architecture
+
+IoT Data Sources  
+⬇  
+Data Preprocessing & Feature Engineering  
+⬇  
+Machine Learning Model  
+⬇  
+Flask Backend API  
+⬇  
+Frontend Dashboard (Chart.js Visualization)
+
+---
+
+## 🧠 Technologies Used
+
+### Programming & Backend
+- Python
+- Flask
+- Flask-CORS
+
+### Machine Learning
+- Scikit-learn
+- Pandas
+- NumPy
+
+### Frontend
+- HTML
+- CSS
+- JavaScript
+- Chart.js
+
+### Tools
+- VS Code
+- Git & GitHub
+
+---
+
+## 📊 Dataset Information
+
+### Traffic Dataset
+- Vehicle count
+- Average speed
+- Traffic density
+- Simulated smart city traffic conditions
+
+### Air Quality Dataset
+- PM10
+- NO₂
+- CO
+- AQI values
+
+Used for traffic analytics and AQI prediction.
+
+---
+
+## ⚙️ Features
+- Real-time API data simulation
+- Live dashboard updates
+- Traffic speed visualization
+- Congestion level indicators
+- AQI monitoring
+- Dynamic chart updates every 5 seconds
+
+---
+
+## 🚀 How to Run the Project
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+cd YOUR_REPO_NAME
