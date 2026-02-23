@@ -81,6 +81,16 @@ Used for traffic analytics and AQI prediction.
 - Dynamic chart updates every 5 seconds
 
 ---
+## 📸 Project Screenshots
+
+### Backend API Response
+![API Response](screenshots/api_response.png)
+
+### Web Dashboard (Frontend)
+![Dashboard](screenshots/dashboard.png)
+
+### Deployment Dashboard
+![Deployment](screenshots/deployment.png)
 
 ## 🚀 How to Run the Project
 
@@ -88,3 +98,4 @@ Used for traffic analytics and AQI prediction.
 ```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 cd YOUR_REPO_NAME
+
