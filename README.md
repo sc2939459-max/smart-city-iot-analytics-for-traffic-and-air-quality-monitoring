@@ -6,6 +6,7 @@ https://smart-city-iot-analytics-for-traffic-and.onrender.com
 
 📡 **Live API Endpoint:**  
 https://smart-city-iot-analytics-for-traffic-and.onrender.com/api/latest
+---
 
 ## 📌 Project Overview
 This project presents a Smart City IoT Analytics system designed to monitor and analyze real-time traffic conditions and air quality levels using data analytics and machine learning techniques.
@@ -23,6 +24,25 @@ The system collects traffic and environmental parameters, processes them through
 
 ---
 
+## 📂 Project Structure
+smart-city-iot-analytics/
+│
+├── backend/        # Flask API and ML prediction logic
+├── frontend/       # Web dashboard (HTML, CSS, JS, Chart.js)
+├── deployment/     # Production deployment configuration
+├── data/           # Dataset used for training
+├── notebook/       # Jupyter notebooks (EDA & model training)
+├── screenshots/    # Project output images
+└── README.md       # Project documentation
+---
+
+### 🔧 Module Description
+- **Backend:** Handles API requests and generates real-time analytics data.
+- **Frontend:** Displays live traffic and AQI data using charts.
+- **Machine Learning:** Predicts AQI and congestion trends.
+- **Deployment:** Hosts the application using Render cloud platform.
+---
+
 ## 🏗️ System Architecture
 
 IoT Data Sources  
@@ -33,7 +53,7 @@ Machine Learning Model
 ⬇  
 Flask Backend API  
 ⬇  
-Frontend Dashboard (Chart.js Visualization)
+Interactive Dashboard (Frontend)
 
 ---
 
