@@ -6,6 +6,19 @@ https://smart-city-iot-analytics-for-traffic-and.onrender.com
 
 📡 **Live API Endpoint:**  
 https://smart-city-iot-analytics-for-traffic-and.onrender.com/api/latest
+## 🌐 Streamlit Deployment (Live Dashboard)
+
+The Smart City IoT Analytics dashboard is deployed using **Streamlit Cloud / Render** for real-time visualization.
+
+🔗 **Live Streamlit Dashboard:**  
+http://localhost:8501/
+
+📊 Features available in live demo:
+- Real-time Traffic Density Monitoring
+- Air Quality Index (AQI) Prediction
+- Congestion Level Detection
+- Interactive Charts & Analytics
+- Live API Data Integration
 ---
 
 ## 📌 Project Overview
