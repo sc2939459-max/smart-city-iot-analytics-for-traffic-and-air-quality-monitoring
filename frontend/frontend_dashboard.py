@@ -1,157 +1,156 @@
 import streamlit as st
-import requests
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
+import requests
 import random
 import time
+import plotly.express as px
 
-API = "http://127.0.0.1:5001/data"
+st.set_page_config(page_title="Smart City IoT Analytics", layout="wide")
 
-st.set_page_config(layout="wide")
+# ----------------------------------------------------
+# Dashboard Title
+# ----------------------------------------------------
 
-st.title("🚦 Smart City IoT Control Center")
-st.caption("Real-Time Traffic & Air Quality Monitoring")
+st.title("🚦 Smart City IoT Analytics Control Dashboard")
+st.caption("Real-time Traffic & Air Quality Monitoring System")
 
-# ---------------------------
-# Fetch Backend Data
-# ---------------------------
+# ----------------------------------------------------
+# Backend API
+# ----------------------------------------------------
 
-try:
-    r = requests.get(API)
-    data = r.json()
-except:
-    st.error("Backend not reachable. Start Flask backend.")
-    st.stop()
+API = "http://127.0.0.1:5001/predict"
 
-# ---------------------------
-# KPI CARDS
-# ---------------------------
+def get_data():
+    try:
+        res = requests.get(API)
+        return res.json()
+    except:
+        return {
+            "speed": random.randint(30,60),
+            "density": random.randint(50,200),
+            "congestion": random.choice(["Low","Medium","High"]),
+            "aqi": random.randint(50,150)
+        }
 
-c1,c2,c3,c4 = st.columns(4)
+data = get_data()
 
-c1.metric("🚗 Avg Speed",data["avg_speed"])
-c2.metric("📊 Traffic Density",data["traffic_density"])
-c3.metric("🌫 AQI",data["aqi"])
-c4.metric("🚦 Congestion",data["congestion"])
+speed = data["speed"]
+density = data["density"]
+congestion = data["congestion"]
+aqi = data["aqi"]
 
-# ---------------------------
-# TRAFFIC SIGNAL STATUS
-# ---------------------------
+# ----------------------------------------------------
+# Metrics Row
+# ----------------------------------------------------
 
-if data["congestion"] == "HIGH":
-    st.error("🔴 Heavy Traffic Detected")
-elif data["congestion"] == "MEDIUM":
-    st.warning("🟡 Moderate Traffic")
+col1,col2,col3,col4 = st.columns(4)
+
+col1.metric("🚗 Avg Speed (km/h)", speed)
+col2.metric("📊 Traffic Density", density)
+col3.metric("🚦 Congestion", congestion)
+col4.metric("🌫 AQI", aqi)
+
+if aqi < 80:
+    st.success("AQI is SAFE")
+elif aqi < 120:
+    st.warning("AQI is MODERATE")
 else:
-    st.success("🟢 Smooth Traffic")
+    st.error("AQI is POOR")
 
 st.divider()
 
-# ---------------------------
-# TRAFFIC ANALYTICS
-# ---------------------------
+# ----------------------------------------------------
+# Live Analytics Charts
+# ----------------------------------------------------
+
+st.subheader("📊 Live Analytics")
 
 col1,col2 = st.columns(2)
 
-traffic = [random.randint(50,200) for i in range(10)]
-
-df = pd.DataFrame({
-"Zone":range(1,11),
-"Traffic Density":traffic
+traffic_data = pd.DataFrame({
+    "Zone":["A","B","C","D","E"],
+    "Density":[150,200,90,70,195]
 })
 
-fig1 = px.bar(df,x="Zone",y="Traffic Density",
-title="Traffic Density Across City Zones")
-
-col1.plotly_chart(fig1,use_container_width=True)
-
-aqi = [random.randint(40,180) for i in range(10)]
-
-df2 = pd.DataFrame({
-"Time":range(1,11),
-"AQI":aqi
+aqi_data = pd.DataFrame({
+    "Time":["10AM","11AM","12PM","1PM","2PM","3PM"],
+    "AQI":[160,150,100,180,140,70]
 })
 
-fig2 = px.line(df2,x="Time",y="AQI",
-title="AQI Trend")
+with col1:
+    st.write("Traffic Density Across City Zones")
+    fig = px.bar(traffic_data,x="Zone",y="Density",color="Density")
+    st.plotly_chart(fig,use_container_width=True)
 
-col2.plotly_chart(fig2,use_container_width=True)
+with col2:
+    st.write("AQI Trend")
+    fig2 = px.line(aqi_data,x="Time",y="AQI",markers=True)
+    st.plotly_chart(fig2,use_container_width=True)
 
-st.divider()
+# ----------------------------------------------------
+# Air Quality semi-circular chart
+# ----------------------------------------------------
 
-# ---------------------------
-# AQI GAUGE
-# ---------------------------
+import plotly.graph_objects as go
 
-st.subheader("Air Quality Index")
+st.subheader("🌫 Air Quality Index")
+
+aqi_value = aqi   # use value from backend
 
 fig = go.Figure(go.Indicator(
-mode="gauge+number",
-value=data["aqi"],
-title={"text":"AQI"},
-gauge={
-"axis":{"range":[0,300]},
-"steps":[
-{"range":[0,100],"color":"green"},
-{"range":[100,200],"color":"yellow"},
-{"range":[200,300],"color":"red"}
-]
-}
+    mode = "gauge+number",
+    value = aqi_value,
+    title = {'text': "AQI"},
+    gauge = {
+        'axis': {'range': [0, 300]},
+        'bar': {'color': "white"},
+        'steps': [
+            {'range': [0, 100], 'color': "green"},
+            {'range': [100, 200], 'color': "yellow"},
+            {'range': [200, 300], 'color': "red"}
+        ],
+    }
 ))
 
-st.plotly_chart(fig,use_container_width=True)
-
-st.divider()
-
-# ---------------------------
-# CITY TRAFFIC MAP
-# ---------------------------
-
-st.subheader("City Traffic Monitoring Map")
-
-map_data = pd.DataFrame({
-"lat":[13.0827,13.07,13.09,13.1,13.06],
-"lon":[80.2707,80.25,80.28,80.29,80.26],
-"traffic":[random.randint(50,200) for i in range(5)]
-})
-
-fig_map = px.scatter_mapbox(
-map_data,
-lat="lat",
-lon="lon",
-size="traffic",
-color="traffic",
-zoom=10,
-mapbox_style="open-street-map",
-title="Traffic Congestion Zones"
+fig.update_layout(
+    height=400,
+    margin=dict(t=50,b=0,l=0,r=0)
 )
 
-st.plotly_chart(fig_map,use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
-st.divider()
+# ----------------------------------------------------
+# City Traffic Monitoring Map (Tirupati)
+# ----------------------------------------------------
 
-# ---------------------------
-# POLLUTION HEATMAP
-# ---------------------------
+st.subheader("🗺 City Traffic Monitoring Map - Tirupati")
 
-st.subheader("Pollution Heat Zones")
-
-heat = pd.DataFrame({
-"Zone":["A","B","C","D","E"],
-"AQI":[random.randint(40,180) for i in range(5)]
+map_data = pd.DataFrame({
+    "lat":[13.6288,13.6300,13.6325,13.6255],
+    "lon":[79.4192,79.4205,79.4180,79.4220]
 })
 
-fig3 = px.density_heatmap(heat,x="Zone",y="AQI")
-
-st.plotly_chart(fig3,use_container_width=True)
+st.map(map_data)
 
 st.divider()
 
+# ----------------------------------------------------
+# Pollution Heat Zones
+# ----------------------------------------------------
 
-# ---------------------------
-# AUTO REFRESH
-# ---------------------------
+st.subheader("🔥 Pollution Heat Zones")
 
-time.sleep(3)
+heat_data = pd.DataFrame({
+    "Zone":["A","B","C","D","E"],
+    "AQI":[120,80,150,60,95]
+})
+
+fig4 = px.density_heatmap(heat_data,x="Zone",y="AQI",title="Pollution Heat Zones")
+st.plotly_chart(fig4,use_container_width=True)
+
+# ----------------------------------------------------
+# Auto Refresh
+# ----------------------------------------------------
+
+time.sleep(5)
 st.rerun()

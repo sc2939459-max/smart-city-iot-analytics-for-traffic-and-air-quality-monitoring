@@ -3,30 +3,19 @@ import random
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def home():
-    return "Smart City IoT Backend Running"
+    return "Smart City Backend Running"
 
-@app.route("/data")
-def data():
-
-    avg_speed = random.randint(20,80)
-    density = random.randint(60,200)
-    aqi = random.randint(40,180)
-
-    if avg_speed < 25:
-        congestion = "HIGH"
-    elif avg_speed < 45:
-        congestion = "MEDIUM"
-    else:
-        congestion = "LOW"
-
-    return jsonify({
-        "avg_speed": avg_speed,
-        "traffic_density": density,
-        "aqi": aqi,
-        "congestion": congestion
-    })
+@app.route('/predict')
+def predict():
+    data = {
+        "speed": random.randint(30, 60),
+        "density": random.randint(50, 200),
+        "congestion": random.choice(["Low", "Medium", "High"]),
+        "aqi": random.randint(50, 150)
+    }
+    return jsonify(data)
 
 if __name__ == "__main__":
-    app.run(port=5001,debug=True)
+    app.run(host="127.0.0.1", port=5001, debug=True)

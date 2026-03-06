@@ -1,52 +1,59 @@
-const speedEl = document.getElementById("speed");
-const densityEl = document.getElementById("density");
-const congestionEl = document.getElementById("congestion");
-const aqiEl = document.getElementById("aqi");
+async function fetchData(){
 
-const labels = [];
-const speedData = [];
+const res = await fetch("http://127.0.0.1:5001/predict");
+const data = await res.json();
 
-const trafficChart = new Chart(
-    document.getElementById("trafficChart"),
-    {
-        type: "line",
-        data: {
-            labels: labels,
-            datasets: [{
-                label: "Average Speed (km/h)",
-                data: speedData,
-                borderWidth: 2
-            }]
-        }
-    }
-);
+document.getElementById("speed").innerText = data.speed + " km/h";
+document.getElementById("density").innerText = data.density;
+document.getElementById("congestion").innerText = data.congestion;
+document.getElementById("aqi").innerText = data.aqi;
 
-async function fetchData() {
-    try {
-        const response = await fetch("http://127.0.0.1:5001/api/latest");
-        const data = await response.json();
-
-        console.log("LIVE DATA:", data);
-
-        speedEl.textContent = data.avg_speed;
-        densityEl.textContent = data.traffic_density;
-        congestionEl.textContent = data.congestion;
-        aqiEl.textContent = data.aqi;
-
-        labels.push(data.timestamp);
-        speedData.push(data.avg_speed);
-
-        if (labels.length > 10) {
-            labels.shift();
-            speedData.shift();
-        }
-
-        trafficChart.update();
-
-    } catch (error) {
-        console.error("API ERROR:", error);
-    }
 }
 
-setInterval(fetchData, 5000);
 fetchData();
+setInterval(fetchData,5000);
+
+
+
+const trafficChart = new Chart(
+document.getElementById('trafficChart'),
+{
+type:'bar',
+data:{
+labels:['A','B','C','D','E'],
+datasets:[{
+label:'Traffic Density',
+data:[150,200,90,70,195],
+backgroundColor:'orange'
+}]
+}
+});
+
+
+const aqiChart = new Chart(
+document.getElementById('aqiChart'),
+{
+type:'line',
+data:{
+labels:['10AM','11AM','12PM','1PM','2PM'],
+datasets:[{
+label:'AQI',
+data:[160,150,100,180,140],
+borderColor:'red'
+}]
+}
+});
+
+
+const pieChart = new Chart(
+document.getElementById('pieChart'),
+{
+type:'pie',
+data:{
+labels:['Good','Moderate','Poor'],
+datasets:[{
+data:[40,35,25],
+backgroundColor:['green','yellow','red']
+}]
+}
+});
