@@ -145,19 +145,13 @@ frontend/index.html
 
 ---
 
-# 🎥 Demo Videos
+## 🎥 Demo Videos
 
 ### Streamlit Dashboard Demo
-
-Watch the full dashboard demonstration:
-
-[videos/streamlit_dashboard_demo.mp4](videos/streamlit_dashboard_demo.mp4)
+[Watch Video](https://github.com/sc2939459-max/smart-city-iot-analytics-for-traffic-and-air-quality-monitoring/blob/main/videos/streamlit_dashboard_demo.mp4)
 
 ### HTML Monitoring Portal Demo
-
-Watch the frontend monitoring system:
-
-[videos/frontend_dashboard_demo.mp4](videos/frontend_dashboard_demo.mp4)
+[Watch Video](https://github.com/sc2939459-max/smart-city-iot-analytics-for-traffic-and-air-quality-monitoring/blob/main/videos/frontend_dashboard_demo.mp4)
 
 ---
 
