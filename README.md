@@ -115,36 +115,41 @@ http://127.0.0.1:5001
 
 ---
 
-### 3️⃣ Run Streamlit Dashboard
+### 🔹 Web Dashboard (Frontend)
+Traffic and air-quality monitoring dashboard built using HTML, CSS, and JavaScript.
 
-```
-streamlit run frontend/frontend_dashboard.py
-```
+![Dashboard](screenshots/dashboard.png)
 
-Dashboard runs on:
+---
 
-```
+### 🔹 Deployment Dashboard (Render)
+Cloud deployment of Flask backend service.
+
+![Deployment](screenshots/deployment.png)
+
+---
+
+### 🔹 Streamlit Analytics Dashboard
+Interactive analytics dashboard with live visualization and alerts.
+
+![Streamlit Dashboard](screenshots/streamlit.png)
+
+## ⚙️ How to Run the Project Locally
+
+### 1️⃣ Clone Repository
+
+git clone https://github.com/sc2939459-max/smart-city-iot-analytics-for-traffic-and-air-quality-monitoring.git
+cd smart-city-iot-analytics-for-traffic-and-air-quality-monitoring
+
+###2️⃣ Install Dependencies
+pip install -r requirements.txt
+
+###3️⃣ Run Flask Backend
+python backend/app.py
+API runs at:
+http://127.0.0.1:5001
+
+###4️⃣ Run Streamlit Dashboard
+streamlit run deployment/app.py
+Dashboard opens at:
 http://localhost:8501
-```
-
----
-
-## 📸 Dashboard Preview
-
-Smart City Analytics Dashboard showing:
-
-* Traffic Density Charts
-* AQI Trend Visualization
-* Live Traffic Camera Monitoring
-
----
-
-## 🎯 Future Improvements
-
-* Real-time IoT sensor integration
-* Smart city traffic prediction
-* AI-based vehicle detection
-* Live camera analytics
-* City map visualization
-
----
