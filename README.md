@@ -174,7 +174,7 @@ http://127.0.0.1:5001/predict
 ### 4️⃣ Run Streamlit Dashboard
 
 ```
-streamlit run frontend/frontend_dashboard.py
+http://localhost:8501/
 ```
 
 ---
@@ -184,7 +184,7 @@ streamlit run frontend/frontend_dashboard.py
 Open:
 
 ```
-frontend/index.html
+http://127.0.0.1:5500/frontend/index.html
 ```
 
 ---
