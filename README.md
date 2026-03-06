@@ -1,160 +1,150 @@
 # 🚦 Smart City IoT Analytics for Traffic and Air Quality Monitoring
 
-A real-time Smart City analytics platform that monitors **traffic conditions** and **air quality levels** using IoT data, Machine Learning, Flask APIs, and interactive dashboards.
-
-The system simulates IoT sensor data, processes it through a backend analytics pipeline, and visualizes live insights via web and Streamlit dashboards.
+A real-time Smart City monitoring system that analyzes **traffic congestion and air quality** using **IoT sensor data and Machine Learning models**.
+The system provides live analytics dashboards, predictive insights, and camera monitoring for urban traffic management.
 
 ---
 
 ## 📌 Project Overview
 
-Urban cities face increasing challenges related to traffic congestion and air pollution.  
-This project provides a **real-time analytics solution** that:
+This project integrates:
 
-- Collects simulated IoT traffic & environmental data
-- Processes data using Machine Learning workflows
-- Serves analytics through a Flask REST API
-- Displays live monitoring dashboards
-- Generates alerts based on AQI conditions
+* IoT Sensor Data
+* Machine Learning Models
+* Flask Backend API
+* Streamlit Interactive Dashboard
 
-The goal is to demonstrate **end-to-end integration of IoT + Data Analytics + Web Deployment**.
+The goal is to help cities monitor:
 
----
-
-## 🎯 Objectives
-
-- Monitor real-time vehicle speed and traffic density
-- Analyze congestion levels dynamically
-- Predict and track Air Quality Index (AQI)
-- Provide live visualization dashboards
-- Deploy a scalable analytics pipeline
+* 🚗 Traffic Density
+* 🌫 Air Quality Index (AQI)
+* 🚦 Traffic Congestion Levels
+* 📊 Real-time Analytics
 
 ---
 
-## 🏗️ System Architecture
+## ⚙️ Technology Stack
+
+* **Python**
+* **Machine Learning**
+* **Flask API**
+* **Streamlit Dashboard**
+* **Pandas / Scikit-learn**
+* **Plotly Visualization**
+
+---
+
+## 🧠 Machine Learning Models Used
+
+* Logistic Regression
+* Decision Tree
+* Random Forest
+* Gradient Boosting
+
+The best model is selected using evaluation metrics.
+
+---
+
+## 🏗 Project Architecture
 
 IoT Sensor Data
 ↓
 Data Preprocessing & Feature Engineering
 ↓
-Machine Learning Model
+Machine Learning Prediction
 ↓
 Flask Backend API
 ↓
-Streamlit Dashboard & Web Dashboard
-
+Streamlit Dashboard & Alerts
 
 ---
 
-## ⚙️ Tech Stack
+## 📊 Dashboard Features
 
-### 👨‍💻 Programming & Frameworks
-- Python
-- Flask
-- Streamlit
-
-### 📊 Data & Machine Learning
-- Pandas
-- NumPy
-- Scikit-learn
-
-### 🌐 Frontend
-- HTML
-- CSS
-- JavaScript
-- Chart.js
-
-### ☁️ Deployment
-- Render (Flask API Deployment)
-- Streamlit Cloud
+* Live Traffic Density Monitoring
+* Air Quality Index Visualization
+* Traffic Congestion Prediction
+* Smart City Analytics Dashboard
+* Live Traffic Camera Monitoring
 
 ---
 
 ## 📂 Project Structure
-smart-city-iot-analytics/
-│
-├── backend/ # Flask API
-├── frontend/ # Web dashboard
-├── deployment/ # Gunicorn & deployment configs
-├── data/ # Dataset
-├── notebook/ # EDA & model training
-├── screenshots/ # Project demo images
-└── README.md
+
+```
+backend/
+    backend_app.py
+    model.pkl
+    scaler.pkl
+
+frontend/
+    frontend_dashboard.py
+
+data/
+    sensor dataset
+
+deployment/
+
+notebook/
+    project.ipynb
+```
 
 ---
 
-## 🚀 Live Demo
+## ▶️ How to Run the Project
 
-### 🔹 Flask Backend API (Render)
-👉 https://smart-city-iot-analytics-for-traffic-and.onrender.com
+### 1️⃣ Install Dependencies
 
-### 🔹 Streamlit Dashboard
-👉 http://localhost:8501/
-
----
-
-## 🔌 API Endpoint
-
-### Get Latest IoT Analytics
-GET /api/latest
-
-### Example Response
-
-'''json
-{
-  "avg_speed": 42,
-  "traffic_density": 191,
-  "congestion": "High",
-  "aqi": 74,
-  "timestamp": "16:39:18"
-}
-
----
-
-## 📸 Project Screenshots
-
-### 🔹 Backend API Response
-Real-time JSON response from Flask backend API.
-
-![API Response](screenshots/api_latest.png)
-
----
-
-### 🔹 Web Dashboard (Frontend)
-Traffic and air-quality monitoring dashboard built using HTML, CSS, and JavaScript.
-
-![Dashboard](screenshots/dashboard.png)
-
----
-
-### 🔹 Deployment Dashboard (Render)
-Cloud deployment of Flask backend service.
-
-![Deployment](screenshots/deployment.png)
-
----
-
-### 🔹 Streamlit Analytics Dashboard
-Interactive analytics dashboard with live visualization and alerts.
-
-![Streamlit Dashboard](screenshots/streamlit.png)
-
-## ⚙️ How to Run the Project Locally
-
-### 1️⃣ Clone Repository
-
-git clone https://github.com/sc2939459-max/smart-city-iot-analytics-for-traffic-and-air-quality-monitoring.git
-cd smart-city-iot-analytics-for-traffic-and-air-quality-monitoring
-
-###2️⃣ Install Dependencies
+```
 pip install -r requirements.txt
+```
 
-###3️⃣ Run Flask Backend
-python backend/app.py
-API runs at:
+---
+
+### 2️⃣ Start Backend API
+
+```
+python backend/backend_app.py
+```
+
+Backend runs on:
+
+```
 http://127.0.0.1:5001
+```
 
-###4️⃣ Run Streamlit Dashboard
-streamlit run deployment/app.py
-Dashboard opens at:
+---
+
+### 3️⃣ Run Streamlit Dashboard
+
+```
+streamlit run frontend/frontend_dashboard.py
+```
+
+Dashboard runs on:
+
+```
 http://localhost:8501
+```
+
+---
+
+## 📸 Dashboard Preview
+
+Smart City Analytics Dashboard showing:
+
+* Traffic Density Charts
+* AQI Trend Visualization
+* Live Traffic Camera Monitoring
+
+---
+
+## 🎯 Future Improvements
+
+* Real-time IoT sensor integration
+* Smart city traffic prediction
+* AI-based vehicle detection
+* Live camera analytics
+* City map visualization
+
+---
