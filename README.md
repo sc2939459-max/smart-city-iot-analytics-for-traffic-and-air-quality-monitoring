@@ -1,55 +1,58 @@
-# 🚦 Smart City IoT Analytics for Traffic & Air Quality Monitoring
+# 🚦 Smart City IoT Analytics for Traffic and Air Quality Monitoring
 
-Real-time **Smart City Analytics platform** that monitors **traffic density, congestion levels, and air quality** using IoT data streams, Machine Learning predictions, Flask APIs, and interactive dashboards.
+A smart city monitoring system that analyzes **traffic density, congestion, and air quality (AQI)** using **IoT-style data streams, machine learning models, Flask APIs, and interactive dashboards**.
 
-The system provides both:
+The system provides:
 
-• **Streamlit analytical dashboard** for data visualization
-• **HTML monitoring portal** for real-time city traffic monitoring
+* 📊 **Streamlit Analytics Dashboard**
+* 🌐 **HTML Monitoring Portal**
+* 🔌 **Flask Backend API**
+* 🎥 **Demo videos for system operation**
 
 ---
 
 # 📌 Project Overview
 
-Urban cities face increasing challenges with **traffic congestion and air pollution**. This project simulates a **Smart City Monitoring System** that analyzes traffic data and environmental indicators to help authorities make informed decisions.
+Urban cities face serious challenges due to **traffic congestion and air pollution**.
+This project simulates a **Smart City Control Center** that collects and analyzes sensor data to provide **real-time monitoring and decision support**.
 
-The platform integrates:
+The platform monitors:
 
-• Machine Learning predictions
-• REST APIs for data access
-• Real-time dashboards
-• Traffic and AQI visualization tools
-
----
-
-# 🧠 Technologies Used
-
-* **Python**
-* **Flask**
-* **Streamlit**
-* **Machine Learning**
-* **HTML / CSS / JavaScript**
-* **Plotly Visualizations**
-* **Leaflet Maps**
+* 🚗 Average Traffic Speed
+* 📊 Traffic Density
+* 🚦 Congestion Level
+* 🌫 Air Quality Index (AQI)
 
 ---
 
-# 🏗 Project Architecture
+# 🏗 System Architecture
 
 ```
 IoT Sensor Data
-       │
-       ▼
+      │
+      ▼
 Machine Learning Model
-       │
-       ▼
+      │
+      ▼
 Flask Backend API
-       │
- ┌─────┴─────┐
- ▼           ▼
-Streamlit    Web Dashboard
-Dashboard    (HTML Portal)
+      │
+ ┌────┴────┐
+ ▼         ▼
+Streamlit   HTML Monitoring
+Dashboard   Portal
 ```
+
+---
+
+# ⚙️ Technologies Used
+
+* Python
+* Flask
+* Streamlit
+* Scikit-learn
+* Pandas & NumPy
+* HTML / CSS / JavaScript
+* Plotly Visualization
 
 ---
 
@@ -62,140 +65,119 @@ smart-city-iot-analytics
 │   └── backend_app.py
 │
 ├── frontend
+│   ├── frontend_dashboard.py
 │   ├── index.html
 │   ├── script.js
 │   └── style.css
 │
-├── deployment
-├── notebook
 ├── data
+├── notebook
+├── deployment
 │
 ├── screenshots
 │   ├── backend.jpg
-│   ├── backend_predict.jpg
+│   └── backend_predict.jpg
 │
-├── demo
-│   ├── streamlit_dashboard.mp4
-│   └── frontend_dashboard.mp4
+├── videos
+│   ├── streamlit_dashboard_demo.mp4
+│   └── frontend_dashboard_demo.mp4
 │
 └── README.md
 ```
 
 ---
 
-# ⚙️ Backend API
+# 🚀 Running the Project
 
-Start the Flask backend:
+### Start Backend
 
-```
+```bash
 python backend/backend_app.py
 ```
 
-Backend runs on:
+Backend runs at:
 
 ```
 http://127.0.0.1:5001
 ```
 
-API endpoint for prediction:
+Test API:
 
 ```
 http://127.0.0.1:5001/predict
 ```
 
-Example response:
-
-```
-{
-  "speed": 48,
-  "density": 60,
-  "congestion": "Medium",
-  "aqi": 94
-}
-```
-
 ---
 
-# 📊 Streamlit Dashboard
+### Run Streamlit Dashboard
 
-Run the analytics dashboard:
-
-```
+```bash
 streamlit run frontend/frontend_dashboard.py
 ```
 
-Dashboard includes:
+Dashboard opens at:
 
-* Traffic Density Analysis
-* AQI Trends
-* Pie Chart Distribution
-* Traffic Monitoring Map
-* Pollution Heat Zones
-* Semi-Circular AQI Gauge
+```
+http://localhost:8501
+```
 
 ---
 
-# 🌐 Web Monitoring Portal
+### Run HTML Monitoring Portal
 
-Open the frontend dashboard:
+Open:
 
 ```
 frontend/index.html
 ```
 
-Features:
+---
 
-* Live Traffic Metrics
-* Zone-based Traffic Status
-* Interactive City Map
-* Traffic Density Table
-* Air Quality Monitoring
+# 📸 Screenshots
+
+### Backend Running
+
+![Backend Running](screenshots/backend.jpg)
+
+### API Prediction Output
+
+![API Output](screenshots/backend%20predict.jpg)
 
 ---
 
-# 📸 Project Screenshots
-
-## Backend Running
-
-![Backend](screenshots/backend.jpg)
-
-## API Prediction Output
-
-![API](screenshots/backend%20predict.jpg)
-
----
-
-# 🎥 Project Demo
+# 🎥 Demo Videos
 
 ### Streamlit Dashboard Demo
 
-[Watch Demo](demo/streamlit%20dashbaord.mv.mp4)
+Watch the full dashboard demonstration:
 
-### Frontend Monitoring Portal Demo
+[videos/streamlit_dashboard_demo.mp4](videos/streamlit_dashboard_demo.mp4)
 
-[Watch Demo](demo/frontend_html.mv.mp4)
+### HTML Monitoring Portal Demo
 
----
+Watch the frontend monitoring system:
 
-# 🚀 Key Features
-
-✔ Real-time traffic monitoring
-✔ Air Quality Index prediction
-✔ Machine learning integration
-✔ REST API architecture
-✔ Interactive data visualization
-✔ Smart city monitoring portal
+[videos/frontend_dashboard_demo.mp4](videos/frontend_dashboard_demo.mp4)
 
 ---
 
-# 📈 Future Improvements
+# ⭐ Key Features
 
-* Real IoT sensor integration
-* Deployment on cloud platforms
-* Real-time Kafka data streaming
-* Mobile application dashboard
-* Advanced predictive analytics
+* Real-time traffic monitoring
+* AQI prediction and visualization
+* Machine learning integration
+* REST API architecture
+* Interactive dashboards
+* Smart city monitoring interface
 
 ---
 
+# 🔮 Future Improvements
+
+* Integration with real IoT sensors
+* Cloud deployment
+* Real-time traffic prediction
+* Mobile monitoring dashboard
+
+---
 
